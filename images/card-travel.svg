@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Travel gift card">
+  <defs><clipPath id="card"><rect width="800" height="500" rx="36"/></clipPath></defs>
+  <g clip-path="url(#card)">
+    <rect width="800" height="500" fill="#1e40af"/>
+    <polygon points="440,0 800,0 800,500 280,500" fill="#2563eb"/>
+    <rect x="0" y="150" width="800" height="34" fill="#ffd166"/>
+    <rect x="560" y="0" width="34" height="500" fill="#ffd166"/>
+    <path d="M560 150 a26 26 0 1 0 -44 -6 M594 150 a26 26 0 1 1 44 -6" fill="none" stroke="#ffd166" stroke-width="12"/>
+    <text x="58" y="390" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" fill="#ffffff">GIFT CARD</text>
+    <text x="60" y="440" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="3" fill="#ffffff">TRAVEL</text>
+  </g>
+</svg>

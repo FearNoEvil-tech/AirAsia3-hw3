@@ -1,0 +1,388 @@
+/* AirAsia Rewards Redemption System
+   Shared stylesheet, linked once from includes/header.php. */
+
+/* Colors and spacing defined once, reused below */
+:root {
+    --brand-red: #cc0000;
+    --brand-red-dark: #a30000;
+    --text: #1f2933;
+    --muted: #5f6b7a;
+    --background: #f4f5f7;
+    --surface: #ffffff;
+    --border: #d9dee5;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    line-height: 1.6;
+}
+
+/* Header bar and navigation */
+.site-header {
+    background-color: var(--brand-red);
+    color: #ffffff;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.brand {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.main-nav a:focus,
+.main-nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 1.9rem;
+}
+
+.page-intro {
+    color: var(--muted);
+    margin-top: -0.5rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--brand-red);
+}
+
+/* White panel used for forms and the details page */
+.panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+/* Buttons (also used on links styled as buttons) */
+.button {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border: 2px solid var(--brand-red);
+    border-radius: var(--radius);
+    background-color: var(--brand-red);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--brand-red-dark);
+    border-color: var(--brand-red-dark);
+}
+
+.button-secondary {
+    background-color: var(--surface);
+    color: var(--brand-red);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+    background-color: #fdecec;
+    color: var(--brand-red-dark);
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* Gift card list: a responsive grid of cards */
+.list-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.list-header h1 {
+    margin-bottom: 0;
+}
+
+.card-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.gift-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+}
+
+.gift-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.gift-card h2 {
+    font-size: 1.1rem;
+    margin: 0.75rem 0 0.25rem;
+}
+
+.gift-card h2 a {
+    text-decoration: none;
+}
+
+.gift-card h2 a:hover,
+.gift-card h2 a:focus {
+    text-decoration: underline;
+}
+
+.points {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Gift card details page: image beside a read-only list of attributes */
+.details {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px) 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.details img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.details + form {
+    margin-top: 0.5rem;
+}
+
+.details dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.75rem 1.5rem;
+}
+
+.details dt {
+    font-weight: 700;
+}
+
+.details dd {
+    margin: 0;
+}
+
+/* Forms */
+.form-panel {
+    max-width: 560px;
+}
+
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font: inherit;
+    color: var(--text);
+    background-color: #ffffff;
+    border: 1px solid #b6bfca;
+    border-radius: 8px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--brand-red);
+    outline-offset: 1px;
+}
+
+.required-note {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Validation messages on forms */
+.field-error {
+    margin: 0.35rem 0 0;
+    color: var(--brand-red-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+    border-color: var(--brand-red);
+    border-width: 2px;
+}
+
+/* Success and error message boxes */
+.alert {
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid;
+    border-left-width: 6px;
+    border-radius: 8px;
+}
+
+.alert p {
+    margin: 0;
+}
+
+.alert ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+}
+
+.alert-success {
+    color: #14532d;
+    background-color: #ecfdf3;
+    border-color: #2e9d5b;
+}
+
+.alert-error {
+    color: #7a0d0d;
+    background-color: #fdecec;
+    border-color: var(--brand-red);
+}
+
+/* Delete button: dark so it stands apart from the main action */
+.button-danger {
+    background-color: #7a0d0d;
+    border-color: #7a0d0d;
+}
+
+.button-danger:hover,
+.button-danger:focus {
+    background-color: #5c0a0a;
+    border-color: #5c0a0a;
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.25rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* Validation test page (tests/validation-tests.php) */
+.table-scroll {
+    overflow-x: auto;   /* a wide table scrolls inside this box, not the whole page */
+}
+
+.test-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--surface);
+}
+
+.test-table th,
+.test-table td {
+    padding: 0.55rem 0.75rem;
+    overflow-wrap: anywhere;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.test-table th {
+    background-color: #eef0f3;
+}
+
+.result-pass {
+    color: #14532d;
+    font-weight: 700;
+}
+
+.result-fail {
+    color: #ffffff;
+    background-color: var(--brand-red);
+    font-weight: 700;
+}
+
+/* Narrow screens: stack the details layout and tighten padding */
+@media (max-width: 700px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}

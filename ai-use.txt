@@ -1,0 +1,58 @@
+AI Use - HW3: AirAsia Rewards Gift Card Management (PHP, SQLite, PDO)
+
+AI tool used:
+Claude (Anthropic), model ID claude-fable-5-2
+
+Prompts used:
+1. "Ok, now we will work on Air Asia Homework Part 3. Here is the lab
+   instructions" followed by the full HW3 assignment text.
+   (Claude also had the AirAsia Requirements Document and my HW2 repository
+   from our earlier HW1 and HW2 conversations.)
+
+How AI supported my work:
+Claude turned the Gift Card pages of my HW2 static prototype into a working
+PHP application. It wrote database/schema.sql and database/seed.sql from the
+ACCOUNT and GIFTCARD tables in the requirements document and built
+database/rewards.db from them. It moved the repeated header, navigation, and
+footer into includes/ and wrote the PDO connection (includes/db.php), the
+validation functions (includes/validation.php), the SQL functions for the
+GIFTCARD table (includes/giftcards.php), and the five pages: card-list.php,
+card-details.php, card-add.php, card-update.php, and card-delete.php. It also
+wrote the validation test harness (tests/validation-tests.php), ran the
+application on the PHP development server, carried out tests T01 to T08 in a
+browser, and drafted README.md and test-report.md from the results.
+
+One AI suggestion I tested, revised, or rejected:
+Claude pointed out that the requirements document and the HW3 instructions
+disagree in two places. The requirements document says a successful update
+forwards the user to card-list and that card-delete is a PHP page with no
+HTML display. HW3 says a successful update must display the updated card on
+card-details.php, and that card-delete.php must show the card and require
+confirmation through a POST form. Claude suggested following HW3 for the page
+flow and the requirements document for table names, column names, and
+attributes. I checked both documents, agreed, and tested the result: updating
+a card returns to card-details.php with the new values, opening
+card-delete.php does not delete anything, and the card is removed only after
+I confirm. The difference is documented in README.md.
+
+I also reviewed one addition that the assignment does not require:
+router.php. Without it, the PHP development server allows the database file
+to be downloaded at /database/rewards.db. I tested that the application runs
+both with the router (php -S 0.0.0.0:8000 router.php) and without it, and
+kept it as a supporting file.
+
+How I verified the final code and database behavior:
+- Ran php tests/validation-tests.php and opened the test page in the browser.
+  All 38 validation tests passed, including the five required tests.
+- Ran the full workflow in the browser in Codespaces: viewed the list and a
+  card's details, added a card, updated it, and deleted it, as recorded in
+  test-report.md (T01 to T08).
+- Checked the stored data directly with sqlite3 database/rewards.db after the
+  add, update, and delete tests, and confirmed the database has 5 ACCOUNT
+  rows and 20 GIFTCARD rows.
+- Tried invalid and altered input (blank name, a Card Type not in the list,
+  negative value, decimal points, script and SQL text) and invalid card_id
+  values, and confirmed nothing was saved and no error details were shown.
+- Read each PHP file to confirm that every query with a form or URL value
+  uses a prepared statement and that displayed values go through
+  htmlspecialchars().
